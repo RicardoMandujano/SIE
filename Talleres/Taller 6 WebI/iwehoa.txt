@@ -1,0 +1,135 @@
+1 Eje de categoria:
+MES
+2 Eje de valor 1:	2		3
+VOLUMEN				1
+3 Color de region:
+PRODUCTO
+
+Insertar logo o imagen:
+Elemento de informe --> Celda --> En blanco
+--> Click der --> Celda de formato --> Apariencia
+--> Imagen de archivo --> Aceptar
+
+
+
+
+
+Variables:
+
+Hallar cada Mes en caso den la fecha:
+
+=PalabraMayuscula([Fecha])
+
+Cambiar meses de numeros a strings:
+=Si[MES]=1 Entonces "Enero"SinoSi[MES]=2 Entonces "Febrero"
+
+SinoSi[MES]=3 Entonces "Marzo" SinoSi[MES]=4 Entonces "Abril"
+
+=Si [PRODUCTO]="P001" Entonces [VENTA]*0,15 SinoSi
+[PRODUCTO]="P002" Entonces [VENTA]*0,18 SinoSi
+[PRODUCTO]="P003" Entonces [VENTA]*0,1 SinoSi
+[PRODUCTO]="P004" Entonces [VENTA]*0,13 Sino 0
+
+Margen Bruto
+= [Ventas] - [Costo de Ventas]
+
+Margen%
+= [Margen Bruto] / [Ventas]
+
+Utilidad Neta
+= [Margen Bruto]*0,7ParaCada([Ano])
+
+Maximo Costo de Ventas:
+=Máx([Costo de Ventas]ParaCada([Organización de Ventas]))ParaTodo([Organización de Ventas])
+
+
+En caso den:
+Venta, Volumen (Cantidad):
+
+1. Precio Unitario Soles = [Ventas] / [Volumen]
+
+1.1 Ingreso por Ventas = volumen * precio unitario
+
+2. Precio Unitario Dolares = [Precio unitario Soles]/3,28
+
+3. Costo de Venta Soles = depende de la condicion que den (en caso den
+una condicion)
+
+4. Costo de Venta Dolares = [Costo de Venta Soles]/3,28
+
+5. Costo de Venta Unitario Soles = [Costo de Venta Soles]/[Volumen]
+
+6. Costo de Venta Unitario Dolares = [Costo de Venta Unitario Soles]/3,28
+
+7. Stock Disponible = [Volumen]*0,1
+
+8. Maxima, Minima Venta = Max([Venta])ParaTodo([Producto])
+
+9. Maximo, Minimo Volumen = Max([Volumen])ParaTodo([Producto])
+
+10. Venta Dolares = [Venta]/3,28
+
+11. Margen = [Venta Dolares]*0,9
+
+12. Costo comparado al año anterior:
+
+=([Costo de Venta Total] - Anterior([Costo de Venta Total])) / Anterior([Costo de Venta Total])
+
+13. Venta comparado al año anterior:
+
+=([Venta Dolares]-Anterior([Venta Dolares])) / Anterior([Venta Dolares])
+
+14. SumaAcumulativa
+
+14.1 Participacion Venta %
+
+=Porcentaje([Venta Dolares])
+
+14.2 Participacion Costo %
+
+=Porcentaje([Costo])
+
+15. Stock en cada mes
+
+16. Capacidad instalada 
+
+Stock inicial = Venta - Capacidad instalada
+Stock final = Stock inicial + Pedidos nuevos
+
+Si la capacidad instalada por producto es tal --> Usar condicion Si
+
+
+
+
+1. Reporte con secciones y ratios:
+
+Click derecho a la columna la cual se desee seccionar.
+
+2. Reporte con filtros y controles de entrada:
+
+Para Filtro:
+
+Analisis --> Interactuar --> Barra de filtro
+--> Arrastrar las variables que se desee filtrar.
+
+Para Controles de entrada: pueden filtrar mas de 1 valor
+a la vez.
+
+Parte izquierda --> Control de entrada --> Nuevo
+--> Marcar casillas
+
+3. Reporte con ruptura de tablas:
+
+Click derecho sobre la columna --> Ruptura --> Administrar rupturas
+--> Pie de ruptura, Aplicar ordenacion
+
+4. Reporte con formato condicional:
+
+Analisis --> Condicional --> Nueva regla
+--> Variable	Operador	Operandos (puede ir una funcion)
+--> darle formato al condicional
+
+
+
+
+

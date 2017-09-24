@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{6760E8CB-A150-4046-81B9-E8A8DB1E1B41}" Name="localhost.ResellerSales 1">
+      <DtsConnectionManagerID>localhost.ResellerSales 1</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{B5ABAB4E-4110-4FE9-94D3-9B9CDF1BB698}" Name="localhost.ResellerSales 2">
+      <DtsConnectionManagerID>localhost.ResellerSales 2</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{38910F79-B06C-447D-9B49-5B984C5DCD82}" Name="Reseller Sales Data Profile.xml">
+      <DtsConnectionManagerID>Reseller Sales Data Profile.xml</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{9841F930-2CCF-4A4E-BA7E-F05722376157}" Name="localhost.ResellerSales">
+      <DtsConnectionManagerID>localhost.ResellerSales</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{6760E8CB-A150-4046-81B9-E8A8DB1E1B41}</DataSourceID>
+        <Table Schema="dbo" Table="SalesOrderHeader" />
+        <Column IsWildCard="false" ColumnName="OrderDate" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{6760E8CB-A150-4046-81B9-E8A8DB1E1B41}</DataSourceID>
+        <Table Schema="dbo" Table="Resellers" />
+        <Column IsWildCard="false" ColumnName="AddressLine1" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{6760E8CB-A150-4046-81B9-E8A8DB1E1B41}</DataSourceID>
+        <Table Schema="dbo" Table="Resellers" />
+        <Column IsWildCard="false" ColumnName="AddressLine2" />
+      </ColumnNullRatioProfileRequest>
+      <InclusionProfileRequest ID="InclusionReq">
+        <SubsetDataSourceID>{6760E8CB-A150-4046-81B9-E8A8DB1E1B41}</SubsetDataSourceID>
+        <SubsetTable Schema="dbo" Table="SalesOrderHeader" />
+        <SubsetColumns>
+          <Column IsWildCard="false" ColumnName="PaymentType" />
+        </SubsetColumns>
+        <SupersetDataSourceID>{6760E8CB-A150-4046-81B9-E8A8DB1E1B41}</SupersetDataSourceID>
+        <SupersetTable Schema="dbo" Table="PaymentTypes" />
+        <SupersetColumns>
+          <Column IsWildCard="false" ColumnName="PaymentTypeKey" />
+        </SupersetColumns>
+        <InclusionThresholdSetting>None</InclusionThresholdSetting>
+        <InclusionStrengthThreshold>0.95</InclusionStrengthThreshold>
+        <SupersetColumnsKeyThresholdSetting>None</SupersetColumnsKeyThresholdSetting>
+        <SupersetColumnsKeyThreshold>0.95</SupersetColumnsKeyThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </InclusionProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{6760E8CB-A150-4046-81B9-E8A8DB1E1B41}</DataSourceID>
+        <Table DataSource="localhost" Database="ResellerSales" Schema="dbo" Table="Resellers" RowCount="701" />
+        <Column Name="AddressLine1" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>5</MinLength>
+        <MaxLength>39</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>9</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>8</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>11</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>16</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>14</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>33</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>32</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>47</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>48</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>60</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>44</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>53</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>39</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>60</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>22</Length>
+            <Count>49</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>29</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>19</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>25</Length>
+            <Count>27</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>26</Length>
+            <Count>22</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>27</Length>
+            <Count>17</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>28</Length>
+            <Count>10</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>29</Length>
+            <Count>13</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>30</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>31</Length>
+            <Count>11</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>32</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>33</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>34</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>35</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>36</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>37</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>39</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{6760E8CB-A150-4046-81B9-E8A8DB1E1B41}</DataSourceID>
+        <Table DataSource="localhost" Database="ResellerSales" Schema="dbo" Table="Resellers" RowCount="701" />
+        <Column Name="AddressLine2" SqlDbType="NVarChar" MaxLength="60" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>668</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{6760E8CB-A150-4046-81B9-E8A8DB1E1B41}</DataSourceID>
+        <Table DataSource="localhost" Database="ResellerSales" Schema="dbo" Table="SalesOrderHeader" RowCount="3796" />
+        <Column Name="OrderDate" SqlDbType="DateTime" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>2001-07-01T00:00:00.0000000</MinValue>
+        <MaxValue>2004-06-01T00:00:00.0000000</MaxValue>
+      </ColumnStatisticsProfile>
+      <InclusionProfile IsExact="true" ProfileRequestID="InclusionReq">
+        <SubsetDataSourceID>{6760E8CB-A150-4046-81B9-E8A8DB1E1B41}</SubsetDataSourceID>
+        <SubsetTable DataSource="localhost" Database="ResellerSales" Schema="dbo" Table="SalesOrderHeader" RowCount="3796" />
+        <SubsetColumns>
+          <Column Name="PaymentType" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </SubsetColumns>
+        <SupersetDataSourceID>{6760E8CB-A150-4046-81B9-E8A8DB1E1B41}</SupersetDataSourceID>
+        <SupersetTable Schema="dbo" Table="PaymentTypes" RowCount="-1" />
+        <SupersetColumns>
+          <Column Name="PaymentTypeKey" SqlDbType="Int" MaxLength="0" Precision="10" Scale="0" LCID="-1" CodePage="0" IsNullable="false" StringCompareOptions="0" />
+        </SupersetColumns>
+        <IsExactInclusion>false</IsExactInclusion>
+        <InclusionStrength>0.900158061116965</InclusionStrength>
+        <InclusionViolations>
+          <MultiColumnValueDistributionItem>
+            <ColumnValues>
+              <ColumnValue>0</ColumnValue>
+            </ColumnValues>
+            <Count>379</Count>
+          </MultiColumnValueDistributionItem>
+        </InclusionViolations>
+      </InclusionProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>
